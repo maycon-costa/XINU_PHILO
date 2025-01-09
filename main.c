@@ -7,6 +7,10 @@
 sid32 mutex;                  
 sid32 garfo[NUM_FILOSOFOS];    
 
+void pensar(int id) {
+    kprintf("Filósofo %d está pensando.\n", id);
+    sleep(1 + rand() % 3); 
+}
 
 
 
