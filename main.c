@@ -33,3 +33,17 @@ void filosofo(int id) {
         signal(garfo[(id + 1) % NUM_FILOSOFOS]); 
     }
 }
+
+void main() {
+    int i;
+    mutex = semcreate(1); 
+    for (i = 0; i < NUM_FILOSOFOS; i++) {
+        garfo[i] = semcreate(1); 
+    }
+    for (i = 0; i < NUM_FILOSOFOS; i++) {
+        resume(create(filosofo, 1024, 20, "filosofo", 1, i));
+    }
+    while (TRUE) {
+        sleep(10); 
+    }
+}
