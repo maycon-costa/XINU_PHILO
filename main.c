@@ -12,5 +12,9 @@ void pensar(int id) {
     sleep(1 + rand() % 3); 
 }
 
+void comer(int id) {
+    kprintf("Filósofo %d está comendo.\n", id);
+    sleep(2 + rand() % 2); 
+}
 
 
