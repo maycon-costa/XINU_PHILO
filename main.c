@@ -17,4 +17,19 @@ void comer(int id) {
     sleep(2 + rand() % 2); 
 }
 
+void filosofo(int id) {
+    while (TRUE) {
+        pensar(id);
+        wait(mutex); 
 
+        wait(garfo[id]);                  
+        wait(garfo[(id + 1) % NUM_FILOSOFOS]); 
+
+        signal(mutex); 
+
+        comer(id); 
+
+        signal(garfo[id]);                  
+        signal(garfo[(id + 1) % NUM_FILOSOFOS]); 
+    }
+}
